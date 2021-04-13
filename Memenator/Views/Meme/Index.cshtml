@@ -1,0 +1,62 @@
+@model Memenator.Models.Data
+
+<p>@Model.memes.Count()</p>
+
+<div>
+    <table class="table table-hover" >
+        <thead>
+            <!--displays the column names for the forecast details-->
+            <tr class="table-warning">
+
+                <th style="font-size:large; width:200px">
+                   ID
+                </th>
+
+                <th class="tHeading" style="width :80px">
+                   NAME
+                </th>
+
+                <th>
+                    MEME
+                </th>
+                
+                <th style="width:80px">
+
+                </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.memes)
+            {
+
+                <!--displays the properties for each of the forecast-->
+                <tr class="table-light">
+                    <td >
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+
+                     <td >
+                             @Html.DisplayFor(modelItem => item.name)
+                    
+                    </td>
+
+
+                    <td style="width:80px">
+
+                        <img src= "@item.url" style="width: 50px;" />
+                    </td>
+
+                    <th style="width:80px">
+
+                             <a asp-action="Generate" asp-controller="Meme"  asp-route-id=@item.id class="btn"> Generate </a>
+                    </th>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

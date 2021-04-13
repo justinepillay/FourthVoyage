@@ -1,0 +1,20 @@
+@model Memenator.Models.Meme
+
+<p>
+    @Model.name
+</p>
+
+<img src= "@Model.url" style="width: 150px;" />
+
+
+<form method="post">
+    Caption 1:
+    <input type="text" id="caption1" name="Caption1" />
+    <br/>
+    Caption 2:
+    <input type="text" id="caption2" name="Caption2"  />
+    <br/>
+    <input name="id" type="hidden" value="@ViewBag.meme"/>
+
+    <input type="submit" text="Generate" />
+</form>
